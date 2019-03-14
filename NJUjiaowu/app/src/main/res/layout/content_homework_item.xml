@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".homeworkItem"
+    tools:showIn="@layout/activity_homework_item">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        
+        <EditText
+            android:id="@+id/todo_name"
+            style="@style/Bar"
+            android:hint="作业名称"/>
+
+        <EditText
+            android:id="@+id/todo_content"
+            style="@style/Bar"
+            android:layout_height="96dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:maxLines="3"
+            android:hint="作业内容（可选）" />
+
+        <RelativeLayout
+            style="@style/Bar"
+            android:id="@+id/time_picker"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="ddl"/>
+
+
+            <ImageView
+                android:id="@+id/pickTimeArrow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/arrow"
+                style="@style/icon" />
+
+            <TextView
+                android:id="@+id/pickedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/pickTimeArrow"
+                android:layout_marginRight="@dimen/bar_padding" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
