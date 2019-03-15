@@ -71,19 +71,27 @@
 
                 <EditText
                     android:id="@+id/verify"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_verify"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:layout_weight="1"/>
+                    android:layout_weight="5"/>
 
                 <ImageView
-                    android:layout_width="match_parent"
+                    android:id="@+id/captcha_image"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/button1"
-                    android:layout_weight="1"
+                    android:layout_weight="4"
                     android:layout_marginLeft="10dp"/>
+
+                <ImageView
+                    android:id="@+id/captcha_refresh"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/refresh"/>
 
             </LinearLayout>
 

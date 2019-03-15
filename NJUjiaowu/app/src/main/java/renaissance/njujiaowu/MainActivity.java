@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        ImageView option1 = (ImageView) findViewById(R.id.option_image1);
-        ImageView option2 = (ImageView) findViewById(R.id.option_image2);
-        ImageView option3 = (ImageView) findViewById(R.id.option_image3);
+        RelativeLayout option1 = (RelativeLayout) findViewById(R.id.option_toDo);
+//        ImageView option2 = (ImageView) findViewById(R.id.option_image2);
+//        ImageView option3 = (ImageView) findViewById(R.id.option_image3);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

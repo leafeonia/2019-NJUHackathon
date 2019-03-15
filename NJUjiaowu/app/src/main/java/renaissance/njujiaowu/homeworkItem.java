@@ -38,6 +38,7 @@ public class homeworkItem extends AppCompatActivity {
         mToDoContent = (EditText)findViewById(R.id.todo_content);
         toolbar.setTitle("作业++");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         findViewById(R.id.time_picker).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,13 +57,16 @@ public class homeworkItem extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        int itemId = item.getItemId();
-//        switch (itemId){
-//            case R.id.:
-//
-//                break;
-//        }
-        saveTodo();
+        int itemId = item.getItemId();
+        switch (itemId){
+            case R.id.home:
+                Intent i = new Intent(homeworkItem.this,MainActivity.class);
+                startActivity(i);
+                finish();
+                break;
+            case R.id.addToDo_tick:
+                saveTodo();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -89,6 +93,7 @@ public class homeworkItem extends AppCompatActivity {
         editor.commit();
         Intent i = new Intent(homeworkItem.this,homework.class);
         startActivity(i);
+        finish();
     }
 
     int pickedYear,pickedMonth,pickedDate,pickedHour,pickedMinute;
@@ -116,7 +121,12 @@ public class homeworkItem extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                     pickedHour = hourOfDay;
                     pickedMinute = minute;
-                    mPickedTime.setText(pickedMonth+"/"+pickedDate+" "+pickedHour+":"+pickedMinute);
+                    String temp;
+                    if(pickedHour < 10) temp = "0"+pickedHour+":";
+                    else temp = pickedHour+":";
+                    if (pickedMinute < 10) temp += ("0"+pickedMinute);
+                    else temp += pickedMinute;
+                    mPickedTime.setText(pickedMonth+"/"+pickedDate+" "+temp);
             }
         },0,0,true);
         timePickerDialog.show();

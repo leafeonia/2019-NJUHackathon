@@ -5,8 +5,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
@@ -28,15 +30,16 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 public class LoginNetwork extends Application {
-    private login_test_activity mHost;
+    private LoginActivity mHost;
     private Context mContext;
     private ImageView mImageCatpcha;
 
     public int getcaptchaInfo;
     public int loginInfo;
 
-    LoginNetwork(login_test_activity host){
+    LoginNetwork(LoginActivity host,ImageView mImageView){
         mHost = host;
+        mImageCatpcha = mImageView;
     }
 
     @Override
@@ -50,8 +53,8 @@ public class LoginNetwork extends Application {
     }
 
     private void initComponent(){
-        mContext = mHost.mContext;
-        mImageCatpcha = mHost.mImageCatpcha;
+        mContext = mHost.getApplicationContext();
+//        mImageCatpcha = mHost.mImageCatpcha;
 
         getcaptchaInfo = 0;
         loginInfo = 0;
@@ -91,8 +94,6 @@ public class LoginNetwork extends Application {
     }
 
     private boolean isLoadingCaptcha = false;
-    private boolean isOK = false;
-    //返回0代表
     public void getCaptcha(){
         if(isLoadingCaptcha){
             this.getcaptchaInfo = 1;
@@ -111,7 +112,7 @@ public class LoginNetwork extends Application {
                         LoginNetwork.this.getcaptchaInfo = 2;
                         Log.d("getCaptcha", "进入onError函数");
                         e.printStackTrace();
-                        mImageCatpcha.setImageResource(R.mipmap.ic_launcher);
+                        //mImageCatpcha.setImageResource(R.mipmap.ic_launcher);
                         isLoadingCaptcha = false;
                     }
 
@@ -123,7 +124,6 @@ public class LoginNetwork extends Application {
                                 mContext
                                         .getCacheDir()
                                         .getAbsolutePath() + "/loadCaptcha.jpg"));
-                        isOK = true;
                         isLoadingCaptcha = false;
                     }
                 });
@@ -152,15 +152,20 @@ public class LoginNetwork extends Application {
                         if (response.contains(mHost.getString(R.string.njunet_login_captcha_err))) {
                             LoginNetwork.this.loginInfo = 2;
                             Log.d("login", mHost.getString(R.string.njunet_login_captcha_err));
+                            mHost.showNotice("验证码错误");
                         } else if (response.contains(mHost.getString(R.string.njunet_login_password_err))) {
                             LoginNetwork.this.loginInfo = 3;
                             Log.d("login", mHost.getString(R.string.njunet_login_password_err));
+                            mHost.showNotice("密码错误");
                         } else if (response.contains(mHost.getString(R.string.njunet_login_timeout_err))) {
                             LoginNetwork.this.loginInfo = 4;
                             Log.d("login", mHost.getString(R.string.njunet_login_timeout_err));
+                            mHost.showNotice("已超时");
                         } else {
                             LoginNetwork.this.loginInfo = 5;
                             Log.d("login", response);
+                            mHost.showNotice("登录成功");
+                            mHost.quit();
                         }
                     }
         });

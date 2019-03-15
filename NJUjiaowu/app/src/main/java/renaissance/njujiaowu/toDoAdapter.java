@@ -66,9 +66,10 @@ public class toDoAdapter extends BaseAdapter {
             public void onClick(View v) {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("homeWorkItem",Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
+                String key = toDos.get(position).getKey();
                 toDos.remove(position);
                 notifyDataSetChanged();
-                editor.remove(toDos.get(position).getKey());
+                editor.remove(key);
                 editor.commit();
             }
         });

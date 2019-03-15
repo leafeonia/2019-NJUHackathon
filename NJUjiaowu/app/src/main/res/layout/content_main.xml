@@ -14,45 +14,139 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="150dp"
-            android:background="@drawable/test"/>
+            android:background="@drawable/main1"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <RelativeLayout
+            style="@style/Bar"
+            android:id="@+id/option_toDo"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/toDo_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/homework"
+                android:layout_marginRight="@dimen/bar_padding"
+                style="@style/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/toDo_icon"
+                android:text="作业列表"/>
 
-                <ImageView
-                    android:id="@+id/option_image1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/button1" />
 
-                <ImageView
-                    android:id="@+id/option_image2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/button2"/>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/arrow"
+                style="@style/icon" />
 
-                <ImageView
-                    android:id="@+id/option_image3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/button3"
-                    style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>
 
-            </LinearLayout>
 
-        </ScrollView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/Bar"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/clock_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/clock"
+                android:layout_marginRight="@dimen/bar_padding"
+                style="@style/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/clock_icon"
+                android:text="智能闹钟"/>
+
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/arrow"
+                style="@style/icon" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/Bar"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/chart_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/chart"
+                android:layout_marginRight="@dimen/bar_padding"
+                style="@style/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/chart_icon"
+                android:text="选课查询"/>
+
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/arrow"
+                style="@style/icon" />
+
+
+
+        </RelativeLayout>
+
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_gravity="center">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/option_image1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--android:background="@drawable/button1" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/option_image2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--android:background="@drawable/button2"/>-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/option_image3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--android:background="@drawable/button3"-->
+                    <!--style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>-->
+
+            <!--</LinearLayout>-->
+
+        <!--</ScrollView>-->
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

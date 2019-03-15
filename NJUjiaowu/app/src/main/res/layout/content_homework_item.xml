@@ -12,11 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        
-        <EditText
-            android:id="@+id/todo_name"
-            style="@style/Bar"
-            android:hint="作业名称"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/todo_name"
+                style="@style/Bar"
+                android:hint="作业名称"/>
+
+            <!--<Spinner-->
+                <!--android:layout_marginTop="30dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:entries="@array/courses">-->
+
+            <!--</Spinner>-->
+
+        </RelativeLayout>
+
 
         <EditText
             android:id="@+id/todo_content"
@@ -38,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="ddl"/>
+
 
 
             <ImageView
