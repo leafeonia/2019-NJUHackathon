@@ -13,4 +13,8 @@ public class CourseInfo {
         CourseScore = score;
         CourseType = type;
     }
+    @Override
+    public String toString() {
+        return CourseTerm + " " + CourseName + " " + CourseUnit + " " + CourseScore + " " + CourseType;
+    }
 }

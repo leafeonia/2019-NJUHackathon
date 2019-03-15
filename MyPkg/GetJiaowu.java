@@ -93,7 +93,7 @@ public class GetJiaowu {
 
     public static void init() {
 
-        CourseSoup.init();
+        //CourseSoup.init();
 
         load();
 
@@ -153,7 +153,8 @@ public class GetJiaowu {
                 } else {
                     //登陆成功，获取下一界面的内容
                     //System.out.println(response);
-                    toCurriculum(schoolUrl); //课程表页面
+                    toCommonCourse(schoolUrl);
+                    //toCurriculum(schoolUrl); //课程表页面
                     //toGrade(schoolUrl); //成绩页面
                 }
             }
@@ -192,6 +193,11 @@ public class GetJiaowu {
                             System.out.println(Grade + " " + course_name + " units:" + course_unit + " score:" + course_score);
                         }
                     }
+                    /*int length = CourseSoup.length();
+                    System.out.println("length: " + length);
+                    for(int j = 0; j < length; j++) {
+                        System.out.println(CourseSoup.CourseList.get(j));
+                    }*/
                 }
             }
         });
@@ -295,6 +301,37 @@ public class GetJiaowu {
                         toGrade(schoolUrl);
                     }
                 });
+    }
+
+    public static void toCommonCourse(final String schoolUrl) {
+        OkHttpUtils.get().url(schoolUrl + "student/elective/courseList.do?method=discussRenewCourseList&campus=仙林校区")
+                .build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int i) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(String s, int i) {
+                Document doc = Jsoup.parse(s);
+                //#tbCourseList > tbody
+                Elements course_board = doc.select("#tbCourseList").select("tbody");
+                for(Element ele : course_board) {
+                    Elements course_list = ele.getElementsByAttribute("class");
+                    for(Element course_single : course_list) {
+                        //#tbCourseList > tbody > tr:nth-child(1) > td:nth-child(3)
+                        String CourseName = course_single.select("td:nth-child(3)").text();
+                        String CourseUnit = course_single.select("td:nth-child(4)").text();
+                        String CourseSchedual = course_single.select("td:nth-child(5)").text();
+                        String CourseTeacher = course_single.select("td:nth-child(6)").text();
+                        String CourseLimit = course_single.select("td:nth-child(7)").text();
+                        String CourseChosen = course_single.select("td:nth-child(8)").text();
+                        System.out.println(CourseName + " 学分：" + CourseUnit + " " + CourseSchedual
+                               + " " + CourseTeacher + " 限额：" + CourseLimit + " 已选：" + CourseChosen);
+                    }
+                }
+            }
+        });
     }
 
 }
