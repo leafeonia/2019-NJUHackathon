@@ -16,5 +16,11 @@ public class Entrance {
         String captcha = scanner.nextLine();
 
         int code = GetJiaowu.login_get(username, password, captcha);
+
+        int length = CourseSoup.length();
+        System.out.println("length: " + length);
+        for(int j = 0; j < length; j++) {
+            System.out.println(CourseSoup.CourseList.get(j));
+        }
     }
 }
