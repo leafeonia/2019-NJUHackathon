@@ -28,6 +28,9 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import renaissance.njujiaowu.MyPkg.CourseInfo;
+import renaissance.njujiaowu.MyPkg.CourseSoup;
+import renaissance.njujiaowu.MyPkg.GetJiaowu;
 
 public class LoginNetwork extends Application {
     private LoginActivity mHost;
@@ -165,6 +168,8 @@ public class LoginNetwork extends Application {
                             LoginNetwork.this.loginInfo = 5;
                             Log.d("login", response);
                             mHost.showNotice("登录成功");
+//                            GetJiaowu.init();
+                            GetJiaowu.toCurriculum("http://elite.nju.edu.cn/jiaowu/");
                             mHost.quit();
                         }
                     }

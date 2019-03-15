@@ -59,8 +59,8 @@ public class homeworkItem extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         switch (itemId){
-            case R.id.home:
-                Intent i = new Intent(homeworkItem.this,MainActivity.class);
+            case android.R.id.home:
+                Intent i = new Intent(homeworkItem.this,homework.class);
                 startActivity(i);
                 finish();
                 break;
