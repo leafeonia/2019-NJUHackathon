@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="270dp">
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/tv_monday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:text="星期一"
+                android:textSize="30dp" />
+
+
+
+            <TextView
+                android:id="@+id/clock_morning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_alignParentRight="true"
+                android:text=" 上午: 7:00"
+                android:textSize="30dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/tv_tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:text="星期二"
+                android:textSize="30dp" />
+
+
+
+            <TextView
+                android:id="@+id/clock_morning2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text=" 上午: 7:00"
+                android:textSize="30dp"
+                android:layout_alignParentRight="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/tv_wednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:text="星期三"
+                android:textSize="30dp" />
+
+
+            <TextView
+                android:id="@+id/clock_morning3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_alignParentRight="true"
+                android:text=" 上午: 7:00"
+                android:textSize="30dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/tv_thursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:text="星期四"
+                android:textSize="30dp" />
+
+
+            <TextView
+                android:id="@+id/clock_morning4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_alignParentRight="true"
+                android:text=" 上午: 7:00"
+                android:textSize="30dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/tv_friday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:text="星期五"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/clock_morning5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_alignParentRight="true"
+                android:text=" 上午: 7:00"
+                android:textSize="30dp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:text="设置闹钟时间"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:text="一键设置闹钟"/>
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:text="一键取消闹钟"/>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+

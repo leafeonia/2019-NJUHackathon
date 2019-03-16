@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout option2 = (RelativeLayout) findViewById(R.id.option_score);
         RelativeLayout option3 = (RelativeLayout) findViewById(R.id.option_chooseCourse);
         RelativeLayout option4 = (RelativeLayout) findViewById(R.id.option_overall);
+        RelativeLayout option5 = (RelativeLayout) findViewById(R.id.option_clock);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -64,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,Overall.class);
+                startActivity(i);
+            }
+        });
+
+        option5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,ClockActivity.class);
                 startActivity(i);
             }
         });

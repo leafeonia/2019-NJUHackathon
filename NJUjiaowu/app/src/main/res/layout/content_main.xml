@@ -83,6 +83,38 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/option_clock"
+            style="@style/Bar"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/alarm_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/clock"
+                android:layout_marginRight="@dimen/bar_padding"
+                style="@style/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/alarm_icon"
+                android:text="智能闹钟"/>
+
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/arrow"
+                style="@style/icon" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/option_chooseCourse"
             style="@style/Bar"
             android:clickable="true"
@@ -145,6 +177,8 @@
 
 
         </RelativeLayout>
+
+
 
         <!--<ScrollView-->
             <!--android:layout_width="match_parent"-->

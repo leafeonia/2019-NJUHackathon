@@ -44,8 +44,18 @@
         <activity
             android:name=".CourseList"
             android:label="选课查询" />
-        <activity android:name=".Overall"
-            android:label="学业总览"></activity>
+        <activity
+            android:name=".Overall"
+            android:label="学业总览" />
+        <activity
+            android:name=".audio"
+            android:label="闹钟"></activity>
+        <activity
+            android:name=".ClockActivity"
+            android:label="智能闹钟" />
+        <activity
+            android:name=".clock_setting"
+            android:label="智能闹钟" />
     </application>
 
 </manifest>

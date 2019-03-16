@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".clock_setting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout style="@style/Bar">
+            <TextView
+                android:id="@+id/choice1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如果第一节有课:"
+                android:clickable="true"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7:00"
+                android:textSize="20dp"
+                android:layout_below="@+id/choice1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/choice2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如果第二节有课"
+                android:clickable="true"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00"
+                android:textSize="20dp"
+                android:layout_below="@+id/choice2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/Bar">
+
+            <TextView
+                android:id="@+id/choice3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如果第三节有课"
+                android:clickable="true"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/time3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:00"
+                android:textSize="20dp"
+                android:layout_below="@+id/choice3"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
