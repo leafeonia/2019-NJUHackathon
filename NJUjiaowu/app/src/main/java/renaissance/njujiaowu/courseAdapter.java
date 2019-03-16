@@ -48,12 +48,13 @@ public class courseAdapter extends BaseAdapter {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.course_item,parent,false);
             viewHolder.tv=(TextView)convertView.findViewById(R.id.textView1);
-            viewHolder.tv.setText(courses.get(position).getKey());
+//            viewHolder.tv.setText(courses.get(position).getKey());
             convertView.setTag(viewHolder);
         }
         else {
             viewHolder = (courseAdapter.ViewHolder) convertView.getTag();
         }
+        viewHolder.tv.setText(courses.get(position).getKey());
 
 //        viewHolder.tv.setOnClickListener(new View.OnClickListener() {
 //            @Override

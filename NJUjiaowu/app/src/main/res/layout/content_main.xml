@@ -52,6 +52,7 @@
 
         <RelativeLayout
             style="@style/Bar"
+            android:id="@+id/option_score"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground">
 
@@ -82,6 +83,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/option_chooseCourse"
             style="@style/Bar"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground">

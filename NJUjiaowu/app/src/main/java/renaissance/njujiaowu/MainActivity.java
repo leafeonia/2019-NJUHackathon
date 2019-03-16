@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         RelativeLayout option1 = (RelativeLayout) findViewById(R.id.option_toDo);
-//        ImageView option2 = (ImageView) findViewById(R.id.option_image2);
-//        ImageView option3 = (ImageView) findViewById(R.id.option_image3);
+        RelativeLayout option2 = (RelativeLayout) findViewById(R.id.option_score);
+        RelativeLayout option3 = (RelativeLayout) findViewById(R.id.option_chooseCourse);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -42,6 +42,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        option2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Grade.class);
+                startActivity(i);
+            }
+        });
+
+        option3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,CourseList.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override

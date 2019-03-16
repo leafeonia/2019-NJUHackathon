@@ -15,7 +15,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_homework">homework</string>
+    <string name="title_activity_homework">作业列表</string>
     <string name="title_activity_homework_item">homeworkItem</string>
 
     <string name="njunet_network">http://elite.nju.edu.cn/jiaowu/</string>

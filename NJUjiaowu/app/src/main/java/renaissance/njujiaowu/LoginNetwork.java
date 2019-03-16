@@ -136,6 +136,8 @@ public class LoginNetwork extends Application {
                       final String passwd,
                       final String catpcha){
         Log.d("login", "开始login函数");
+        initOkHttp();
+
         OkHttpUtils.post()
                 .url(mHost.getString(R.string.njunet_network) + mHost.getString(R.string.njunet_login))
                 .addParams("userName", xh)
@@ -168,6 +170,7 @@ public class LoginNetwork extends Application {
                             LoginNetwork.this.loginInfo = 5;
                             Log.d("login", response);
                             mHost.showNotice("登录成功");
+//                            CourseSoup.clear();
 //                            GetJiaowu.init();
                             GetJiaowu.toCurriculum("http://elite.nju.edu.cn/jiaowu/");
                             mHost.quit();

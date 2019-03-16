@@ -16,10 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-	packagingOptions {
+    packagingOptions {
         exclude 'kotlin/reflect/reflect.kotlin_builtins'
-		exclude 'META-INF/jvm.kotlin_module'
-		exclude 'META-INF/proguard/okio.pro'
+        exclude 'META-INF/jvm.kotlin_module'
+        exclude 'META-INF/proguard/okio.pro'
     }
 }
 

@@ -23,4 +23,7 @@ public class CourseSoup {
         }
         return CourseList.size();
     }
+    public static void clear() {
+        if(CourseList != null) CourseList.clear();
+    }
 }

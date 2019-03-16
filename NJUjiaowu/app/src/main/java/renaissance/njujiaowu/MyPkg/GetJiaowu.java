@@ -26,6 +26,7 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import renaissance.njujiaowu.CourseList;
 import renaissance.njujiaowu.MainActivity;
 import renaissance.njujiaowu.homeworkItem;
 
@@ -300,7 +301,8 @@ public class GetJiaowu {
 //                        System.out.println("Thr:" + MorningCourse.Thrusday);
 //                        System.out.println("Fri:" + MorningCourse.Friday);
 
-                        toGrade(schoolUrl);
+                        //toGrade(schoolUrl);
+                        toCommonCourse(schoolUrl);
                     }
                 });
     }
@@ -321,6 +323,7 @@ public class GetJiaowu {
                 for(Element ele : course_board) {
                     Elements course_list = ele.getElementsByAttribute("class");
                     for(Element course_single : course_list) {
+
                         //#tbCourseList > tbody > tr:nth-child(1) > td:nth-child(3)
                         String CourseName = course_single.select("td:nth-child(3)").text();
                         String CourseUnit = course_single.select("td:nth-child(4)").text();
@@ -328,10 +331,12 @@ public class GetJiaowu {
                         String CourseTeacher = course_single.select("td:nth-child(6)").text();
                         String CourseLimit = course_single.select("td:nth-child(7)").text();
                         String CourseChosen = course_single.select("td:nth-child(8)").text();
-                        System.out.println(CourseName + " 学分：" + CourseUnit + " " + CourseSchedual
-                                + " " + CourseTeacher + " 限额：" + CourseLimit + " 已选：" + CourseChosen);
+                        InfoHolder.setCourseList(CourseName, CourseUnit, CourseSchedual, CourseTeacher, CourseLimit, CourseChosen, 1);
+//                        System.out.println(CourseName + " 学分：" + CourseUnit + " " + CourseSchedual
+//                                + " " + CourseTeacher + " 限额：" + CourseLimit + " 已选：" + CourseChosen);
                     }
                 }
+                toGrade(schoolUrl);
             }
         });
     }
