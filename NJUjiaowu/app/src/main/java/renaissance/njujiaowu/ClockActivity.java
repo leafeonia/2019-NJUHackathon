@@ -35,7 +35,7 @@ import static renaissance.njujiaowu.clock_setting.pickedMinute1;
 import static renaissance.njujiaowu.clock_setting.pickedMinute2;
 import static renaissance.njujiaowu.clock_setting.pickedMinute3;
 
-public class ClockActivity extends Activity implements OnClickListener {
+public class ClockActivity extends AppCompatActivity {
     TextView tvMonday;
     TextView tvTuesday;
     TextView tvWednesday;
@@ -83,17 +83,14 @@ public class ClockActivity extends Activity implements OnClickListener {
         startServiceBtn = (Button) findViewById(R.id.start);
         cancelServiceBtn = (Button) findViewById(R.id.finish);
 
-        startServiceBtn.setOnClickListener(this);
-        cancelServiceBtn.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.start:
-                Intent i = new Intent(this, AlarmService.class);
+//        startServiceBtn.setOnClickListener(this);
+//        cancelServiceBtn.setOnClickListener(this);
+        startServiceBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ClockActivity.this, AlarmService.class);
                 // 获取20秒之后的日期时间字符串
-                Log.d("问题", "heheh");
+                Log.d("Click", "heheh");
                 i.putExtra("alarm_time",
                         DateTimeUtil.getNLaterDateTimeString(Calendar.SECOND, 5));
                 i.putExtra("task_id", mTaskId[0]);
@@ -132,28 +129,98 @@ public class ClockActivity extends Activity implements OnClickListener {
                     i.putExtra("task_id", mTaskId[5]);
                     startService(i);
                 }
-                break;
-            case R.id.finish:
+            }
+        });
+
+        cancelServiceBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if(hour1!=0)
-                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[1],
-                        AlarmReceiver.class);
+                    AlarmManagerUtil.cancelAlarmBroadcast(ClockActivity.this, mTaskId[1],
+                            AlarmReceiver.class);
                 if(hour2!=0)
-                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[2],
-                        AlarmReceiver.class);
+                    AlarmManagerUtil.cancelAlarmBroadcast(ClockActivity.this, mTaskId[2],
+                            AlarmReceiver.class);
                 if(hour3!=0)
-                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[3],
-                        AlarmReceiver.class);
+                    AlarmManagerUtil.cancelAlarmBroadcast(ClockActivity.this, mTaskId[3],
+                            AlarmReceiver.class);
                 if(hour4!=0)
-                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[4],
-                        AlarmReceiver.class);
+                    AlarmManagerUtil.cancelAlarmBroadcast(ClockActivity.this, mTaskId[4],
+                            AlarmReceiver.class);
                 if(hour5!=0)
-                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[5],
-                        AlarmReceiver.class);
-                break;
-            default:
-                break;
-        }
+                    AlarmManagerUtil.cancelAlarmBroadcast(ClockActivity.this, mTaskId[5],
+                            AlarmReceiver.class);
+            }
+        });
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.start:
+//                Intent i = new Intent(this, AlarmService.class);
+//                // 获取20秒之后的日期时间字符串
+//                Log.d("问题", "heheh");
+//                i.putExtra("alarm_time",
+//                        DateTimeUtil.getNLaterDateTimeString(Calendar.SECOND, 5));
+//                i.putExtra("task_id", mTaskId[0]);
+//                startService(i);
+//                if(hour1!=0) {
+//                    i.putExtra("alarm_time",
+//                            DateTimeUtil.getNLaterDateTimeStringUsingData(hour1, min1, 1));
+//                    i.putExtra("task_id", mTaskId[1]);
+//                    startService(i);
+//                }
+//
+//                if(hour2!=0) {
+//                    i.putExtra("alarm_time",
+//                            DateTimeUtil.getNLaterDateTimeStringUsingData(hour2, min2, 2));
+//                    i.putExtra("task_id", mTaskId[2]);
+//                    startService(i);
+//                }
+//
+//                if(hour3!=0) {
+//                    i.putExtra("alarm_time",
+//                            DateTimeUtil.getNLaterDateTimeStringUsingData(hour3, min3, 3));
+//                    i.putExtra("task_id", mTaskId[3]);
+//                    startService(i);
+//                }
+//
+//                if(hour4!=0) {
+//                    i.putExtra("alarm_time",
+//                            DateTimeUtil.getNLaterDateTimeStringUsingData(hour4, min4, 4));
+//                    i.putExtra("task_id", mTaskId[4]);
+//                    startService(i);
+//                }
+//
+//                if(hour5!=0) {
+//                    i.putExtra("alarm_time",
+//                            DateTimeUtil.getNLaterDateTimeStringUsingData(hour5, min5, 5));
+//                    i.putExtra("task_id", mTaskId[5]);
+//                    startService(i);
+//                }
+//                break;
+//            case R.id.finish:
+//                if(hour1!=0)
+//                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[1],
+//                        AlarmReceiver.class);
+//                if(hour2!=0)
+//                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[2],
+//                        AlarmReceiver.class);
+//                if(hour3!=0)
+//                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[3],
+//                        AlarmReceiver.class);
+//                if(hour4!=0)
+//                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[4],
+//                        AlarmReceiver.class);
+//                if(hour5!=0)
+//                AlarmManagerUtil.cancelAlarmBroadcast(this, mTaskId[5],
+//                        AlarmReceiver.class);
+//                break;
+//            default:
+//                break;
+//        }
+//    }
 
     private void findView() {
         tvMonday = (TextView) findViewById(R.id.tv_monday);
