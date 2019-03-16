@@ -32,12 +32,10 @@ public class Grade extends AppCompatActivity {
     @Override
     protected void onResume() {
         Map grades = new HashMap();
-        Vector<Integer> term = new Vector<>();
         if (CourseSoup.CourseList != null){
             for (CourseInfo courseInfo :CourseSoup.CourseList){
                 if (courseInfo.CourseTerm != -1) {
-                    grades.put(courseInfo.CourseName, Integer.toString(courseInfo.CourseScore));
-                    term.add(courseInfo.CourseTerm);
+                    grades.put(courseInfo.CourseName, Integer.toString(courseInfo.CourseScore)+"*"+Integer.toString(courseInfo.CourseTerm));
                 }
             }
         }
@@ -45,9 +43,11 @@ public class Grade extends AppCompatActivity {
         Set<Map.Entry<String,String>> entrys = grades.entrySet();
         List<Map.Entry<String,String>> gradeList = new ArrayList<>(entrys);
 
-        for (int i = 0; i < term.size(); i++) {
-            for (int j = i+1; j < term.size(); j++) {
-                if (term.get(i) > term.get(j)){
+        for (int i = 0; i < gradeList.size(); i++) {
+            for (int j = i+1; j < gradeList.size(); j++) {
+                int iTerm = Integer.parseInt(gradeList.get(i).getValue().split("\\*")[1]);
+                int jTerm = Integer.parseInt(gradeList.get(j).getValue().split("\\*")[1]);
+                if (iTerm > jTerm){
                     Map.Entry<String,String> entry = gradeList.get(j);
                     gradeList.set(j,gradeList.get(i));
                     gradeList.set(i,entry);

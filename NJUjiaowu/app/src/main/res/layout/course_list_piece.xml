@@ -1,53 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:padding="10dp"
-        android:orientation="vertical">
-        
+        android:padding="15dp"
+        android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/courselist_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:textSize="18dp"
+                android:layout_weight="1"/>
 
-                <TextView
-                    android:id="@+id/courselist_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/courselist_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="10dp"
+                android:layout_weight="2"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="10dp">
+        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/courselist_teacher"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/courselist_credit"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="10dp"/>
-                </LinearLayout>
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/courselist_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/courselist_credit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/courselist_limist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/courselist_chosen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <ImageButton
                 android:id="@+id/courselist_button"
@@ -57,42 +86,125 @@
                 android:background="@drawable/red_button" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp">
 
-            <TextView
-                android:id="@+id/courselist_time"
-                android:layout_width="20dp"
-                android:layout_weight="7"
-                android:layout_height="match_parent" />
-
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/courselist_limist"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:textSize="10dp"/>
-
-                <TextView
-                    android:id="@+id/courselist_chosen"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:textSize="10dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+    <!---->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:paddingHorizontal="20dp"-->
+    <!--android:paddingVertical="10dp"-->
+    <!--android:orientation="vertical">-->
+    <!---->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_weight="1">-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_weight="1">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/courselist_name"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:textSize="20dp"-->
+    <!--android:layout_weight="4"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:textSize="15dp"-->
+    <!--android:layout_weight="9"/>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--android:paddingHorizontal="5dp"-->
+    <!--android:layout_weight="8">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/courselist_teacher"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:textSize="10dp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/courselist_credit"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:textSize="10dp"/>-->
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/courselist_button"-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:scaleType="fitStart"-->
+    <!--android:background="@drawable/red_button" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:paddingLeft="20dp"-->
+    <!--android:layout_weight="2">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/courselist_time"-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_weight="7"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:textSize="10dp"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_height="match_parent" />-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="60dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/courselist_limist"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:textSize="10dp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/courselist_chosen"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:textSize="10dp"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->

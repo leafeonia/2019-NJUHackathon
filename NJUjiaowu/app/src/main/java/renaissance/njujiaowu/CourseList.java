@@ -2,6 +2,7 @@ package renaissance.njujiaowu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,8 +10,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,7 +34,8 @@ import java.util.Set;
 import renaissance.njujiaowu.MyPkg.InfoHolder;
 
 
-public class CourseList extends Activity {
+public class CourseList extends AppCompatActivity {
+
 
     private ListView courselist;
     private List<InfoHolder> mInfoList;
@@ -53,9 +57,21 @@ public class CourseList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         courselist = (ListView)findViewById(R.id.course_list);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
+            Intent i = new Intent(CourseList.this,MainActivity.class);
+            startActivity(i);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -69,7 +85,8 @@ public class CourseList extends Activity {
 
         //setCourseList("hehehe", "haofhadf", "adfa", "13412", "aefwef", "23t2f", 0);
 
-        courselist.setAdapter(new CourseListAdapter());
+        final CourseListAdapter adapter = new CourseListAdapter();
+        courselist.setAdapter(adapter);
         courselist.setTextFilterEnabled(true);
 
         mSearchView = (SearchView) findViewById(R.id.course_list_search);
@@ -82,9 +99,10 @@ public class CourseList extends Activity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 if(!TextUtils.isEmpty(newText))
-                    courselist.setFilterText(newText);
+                    adapter.getFilter().filter(newText);
+                    //courselist.setFilterText(newText);
                 else
-                    courselist.clearTextFilter();
+                    adapter.getFilter().filter("");
                 return false;
             }
         });
@@ -137,11 +155,15 @@ public class CourseList extends Activity {
             }
 
             viewHolder.courseName.setText(mInfoList.get(position).courseName);
-            viewHolder.courseTeacher.setText("老师：" + mInfoList.get(position).courseTeacher);
-            viewHolder.courseCredit.setText("学分：" + mInfoList.get(position).courseCredit);
+            String temp = mInfoList.get(position).courseTeacher;
+            if (temp.length() > 3) temp = temp.substring(0,3);
+            if(temp.length() >= 3 && (temp.charAt(2) == ',' || temp.charAt(2) == '，'))
+                temp = temp.substring(0, 2);
+            viewHolder.courseTeacher.setText("老师:" + temp);
+            viewHolder.courseCredit.setText("学分:" + mInfoList.get(position).courseCredit);
             viewHolder.courseTime.setText(mInfoList.get(position).courseTime);
-            viewHolder.courseLimit.setText("限额：" + mInfoList.get(position).courseLimit);
-            viewHolder.courseChosen.setText("已选：" + mInfoList.get(position).courseChosen);
+            viewHolder.courseLimit.setText("限额:" + mInfoList.get(position).courseLimit);
+            viewHolder.courseChosen.setText("已选:" + mInfoList.get(position).courseChosen);
             viewHolder.courseButton.setBackgroundResource(mInfoList.get(position).recommandLevel);
 
             viewHolder.courseButton.setOnClickListener(new View.OnClickListener() {

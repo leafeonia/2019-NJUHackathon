@@ -5,4 +5,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="bar_height">48dp</dimen>
     <dimen name="bar_padding">20dp</dimen>
+    <dimen name="overall_left">18sp</dimen>
 </resources>

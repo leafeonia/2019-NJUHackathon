@@ -50,7 +50,7 @@ public class GradeAdapter extends BaseAdapter {
             viewHolder = (GradeAdapter.ViewHolder) convertView.getTag();
         }
         viewHolder.tv_name.setText(grades.get(position).getKey());
-        viewHolder.tv_score.setText(grades.get(position).getValue());
+        viewHolder.tv_score.setText(grades.get(position).getValue().toString().split("\\*")[0]);
 //        notifyDataSetChanged();
         return convertView;
     }

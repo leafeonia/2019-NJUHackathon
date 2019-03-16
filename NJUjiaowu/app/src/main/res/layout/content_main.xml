@@ -60,7 +60,7 @@
                 android:id="@+id/clock_icon"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:src="@drawable/clock"
+                android:src="@drawable/grade"
                 android:layout_marginRight="@dimen/bar_padding"
                 style="@style/icon" />
 
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/clock_icon"
-                android:text="智能闹钟"/>
+                android:text="成绩查询"/>
 
 
             <ImageView
@@ -102,6 +102,38 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/chart_icon"
                 android:text="选课查询"/>
+
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/arrow"
+                style="@style/icon" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/option_overall"
+            style="@style/Bar"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/overall_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/overall"
+                android:layout_marginRight="@dimen/bar_padding"
+                style="@style/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/overall_icon"
+                android:text="学业总览"/>
 
 
             <ImageView

@@ -331,9 +331,11 @@ public class GetJiaowu {
                         String CourseTeacher = course_single.select("td:nth-child(6)").text();
                         String CourseLimit = course_single.select("td:nth-child(7)").text();
                         String CourseChosen = course_single.select("td:nth-child(8)").text();
-                        InfoHolder.setCourseList(CourseName, CourseUnit, CourseSchedual, CourseTeacher, CourseLimit, CourseChosen, 1);
+                        InfoHolder.setCourseList(CourseName, CourseUnit, CourseSchedual, CourseTeacher, CourseLimit, CourseChosen, (int)(1+Math.random()*(100))%4);
+
 //                        System.out.println(CourseName + " 学分：" + CourseUnit + " " + CourseSchedual
 //                                + " " + CourseTeacher + " 限额：" + CourseLimit + " 已选：" + CourseChosen);
+
                     }
                 }
                 toGrade(schoolUrl);
