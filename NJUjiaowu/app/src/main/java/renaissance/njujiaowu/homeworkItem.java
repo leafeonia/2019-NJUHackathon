@@ -13,20 +13,33 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import renaissance.njujiaowu.MyPkg.CourseInfo;
+import renaissance.njujiaowu.MyPkg.CourseSoup;
+
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class homeworkItem extends AppCompatActivity {
 
     TextView mPickedTime;
     EditText mToDoname;
     EditText mToDoContent;
+    Spinner mSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +49,7 @@ public class homeworkItem extends AppCompatActivity {
         mPickedTime = (TextView)findViewById(R.id.pickedTime);
         mToDoname = (EditText)findViewById(R.id.todo_name);
         mToDoContent = (EditText)findViewById(R.id.todo_content);
+        mSpinner = (Spinner)findViewById(R.id.toDo_spinner);
         toolbar.setTitle("作业++");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,7 +60,47 @@ public class homeworkItem extends AppCompatActivity {
                 showDatePicker();
             }
         });
+
+        SharedPreferences pref = getSharedPreferences("courses",MODE_PRIVATE);
+        Map<String,String> all = (Map<String,String>) pref.getAll();
+        if (all.size() == 0){
+            if(CourseSoup.CourseList != null){
+//                int term = 9;
+//                for (CourseInfo courseInfo : CourseSoup.CourseList){
+//                    term = min(courseInfo.CourseTerm,term);
+//                }
+//                pref.edit().putString("请选择","");
+//                all.put("请选择","");
+                SharedPreferences.Editor editor = pref.edit();
+                for (CourseInfo courseInfo : CourseSoup.CourseList){
+                    if (courseInfo.CourseTerm == -1){
+                        editor.putString(courseInfo.CourseName,"");
+                        all.put(courseInfo.CourseName,"");
+                    }
+                }
+                editor.commit();
+            }
+        }
+        Set<Map.Entry<String,String>> entrys = all.entrySet();
+        List<Map.Entry<String,String>> courses = new ArrayList<>(entrys);
+
+        mSpinner.setAdapter(new courseAdapter(courses,homeworkItem.this));
+
+
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String data = (String)mSpinner.getItemAtPosition(position);
+                mToDoname.setText(data);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,6 +149,7 @@ public class homeworkItem extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
 
     int pickedYear,pickedMonth,pickedDate,pickedHour,pickedMinute;
     private void showDatePicker(){

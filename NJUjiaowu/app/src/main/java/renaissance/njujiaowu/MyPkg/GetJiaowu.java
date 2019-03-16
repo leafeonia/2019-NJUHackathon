@@ -1,5 +1,6 @@
 package renaissance.njujiaowu.MyPkg;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.net.*;
@@ -25,6 +26,9 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import renaissance.njujiaowu.MainActivity;
+import renaissance.njujiaowu.homeworkItem;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -251,6 +255,8 @@ public class GetJiaowu {
                             for(Element single_course : course_list) {
                                 //body > div:nth-child(10) > table > tbody > tr:nth-child(3) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(3)
                                 String course_name = single_course.select("td:nth-child(3)").text();
+                                //把这学期的课程放到courseSoup里面，不存在的关键字标记为-1
+                                CourseSoup.add(-1,course_name,-1,-1,"This semester");
                                 String teacher = single_course.select("td:nth-child(5)").text();
                                 String schedual = single_course.select("td:nth-child(6)").text();
                                 //按照空格切分一节课的字符串
