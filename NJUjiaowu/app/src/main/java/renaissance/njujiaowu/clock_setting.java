@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -20,6 +21,7 @@ public class clock_setting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clock_setting);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         findView();
         timechoice1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,5 +106,16 @@ public class clock_setting extends AppCompatActivity {
         screentime1 = (TextView) findViewById(R.id.time1);
         screentime2 = (TextView) findViewById(R.id.time2);
         screentime3 = (TextView) findViewById(R.id.time3);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
+            Intent i = new Intent(clock_setting.this,ClockActivity.class);
+            startActivity(i);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
