@@ -4,7 +4,7 @@
 
 感谢
 
-[tuomianziga](https://github.com/tuomianziga)
+[tmzg-98](https://github.com/tmzg-98)
 
 [vigorweijia](https://github.com/vigorweijia)
 
