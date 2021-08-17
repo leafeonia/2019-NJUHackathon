@@ -4,6 +4,7 @@
 
 Project for Nanjing University Microsoft Club and Tencent Club Hackathon (ranked 2nd) 
 
+
 感谢 Many thanks to
 
 [tmzg-98](https://github.com/tmzg-98)
@@ -14,6 +15,7 @@ yuchenyang
 
 一周以来一起爆肝作出的努力 for the hard work and cooperation during the whole week
 
+
 ## 项目简介 Introduction
 
 NJU教务助手安卓app
@@ -22,7 +24,7 @@ NJU教务助手安卓app
 
 Nanjing University education administration helper Android app
 
-Implemented log in functionality and a crawler. A series of convenient operations can be performed after logging in to the education administration system of university.
+Implemented log in functionality and a crawler. A series of convenient operations can be performed after logging in to the university education administration system.
 
 ### 主界面 Main page
 
@@ -42,7 +44,7 @@ You can add homework name, detail and deadline here to remind yourself.
 
 登陆后，可以自动选择本学期的课程作为作业名称
 
-After logging in, you can select homework name from the course you have enrolled this semester.
+After logging in, you can select homework name from the courses you have enrolled this semester.
 
 ![](demo/homeworkitem2.png)
 
