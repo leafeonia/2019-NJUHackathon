@@ -7,11 +7,11 @@ Project for Nanjing University Microsoft Club and Tencent Club Hackathon (ranked
 
 感谢 Many thanks to
 
+[yuchenyang1999](https://github.com/yuchenyang1999)
+
 [tmzg-98](https://github.com/tmzg-98)
 
 [vigorweijia](https://github.com/vigorweijia)
-
-yuchenyang
 
 一周以来一起爆肝作出的努力 for the hard work and cooperation during the whole week
 
